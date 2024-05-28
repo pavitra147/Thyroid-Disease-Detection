@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Disease Detection</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('https://source.unsplash.com/featured/?health') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header,
+        footer {
+            width: 100%;
+            background: rgba(4, 17, 32, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1,
+        footer p {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .wrapper h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .input-box label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 20px;
+            box-sizing: border-box;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(0, 0, 0, .2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .input-box input::placeholder {
+            color: #aaa;
+        }
+
+        .wrapper .btn {
+            width: 100%;
+            height: 50px;
+            background: rgba(4, 17, 32, 0.8);
+            border: none;
+            outline: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .wrapper .btn:hover {
+            background: #0056b3;
+        }
+
+        footer .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        footer .social-links a:hover {
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .wrapper {
+                padding: 20px;
+            }
+
+            header h1,
+            footer p {
+                font-size: 20px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Thyroid Disease Detection</h1>
+    </header>
+
+    <div class="container">
+        <h1>Fill Your Details</h1>
+        <div class="wrapper">
+            <form action="/predict" method="post">
+                <div class="input-box">
+                    <label for="age">Age:</label>
+                    <input type="number" name="age" required>
+                </div>
+                <div class="input-box">
+                    <label for="sex">Sex (1 for Male, 0 for Female):</label>
+                    <input type="number" name="sex" required>
+                </div>
+                <div class="input-box">
+                    <label for="on_thyroxine">On Thyroxine (1 for Yes, 0 for No):</label>
+                    <input type="number" name="on_thyroxine" required>
+                </div>
+                <div class="input-box">
+                    <label for="query_on_thyroxine">Query on Thyroxine (1 for Yes, 0 for No):</label>
+                    <input type="number" name="query_on_thyroxine" required>
+                </div>
+                <div class="input-box">
+                    <label for="on_antithyroid_medication">On Antithyroid Medication (1 for Yes, 0 for No):</label>
+                    <input type="number" name="on_antithyroid_medication" required>
+                </div>
+                <div class="input-box">
+                    <label for="thyroid_surgery">Thyroid Surgery (1 for Yes, 0 for No):</label>
+                    <input type="number" name="thyroid_surgery" required>
+                </div>
+                <div class="input-box">
+                    <label for="query_hypothyroid">Query Hypothyroid (1 for Yes, 0 for No):</label>
+                    <input type="number" name="query_hypothyroid" required>
+                </div>
+                <div class="input-box">
+                    <label for="query_hyperthyroid">Query Hyperthyroid (1 for Yes, 0 for No):</label>
+                    <input type="number" name="query_hyperthyroid" required>
+                </div>
+                <div class="input-box">
+                    <label for="pregnant">Pregnant (1 for Yes, 0 for No):</label>
+                    <input type="number" name="pregnant" required>
+                </div>
+                <div class="input-box">
+                    <label for="sick">Sick (1 for Yes, 0 for No):</label>
+                    <input type="number" name="sick" required>
+                </div>
+                <div class="input-box">
+                    <label for="TSH">TSH:</label>
+                    <input type="text" name="TSH" required>
+                </div>
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>Connect with us:</p>
+        <div class="social-links">
+          <a href="https://github.com" target="_blank"><i class='bx bxl-github'></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class='bx bxl-linkedin'></i></a>
+          <a href="mailto:someone@gmail.com"><i class='bx bxl-gmail'></i></a>
+        </div>
+      </footer>
+    </body>
+    </html>
