@@ -28,5 +28,9 @@ Model performance evaluated based on accuracy, confusion matrix, classification 
 # Author
 Pavitra Mishra:https://www.linkedin.com/in/pavitra-mishra-483183251/
 
+https://github.com/pavitra147/Thyroid-Disease-Detection/assets/130755029/1d78ea71-96e3-4e11-a746-2a8606b23c90
+
+
+
 # Help Me Improve
 Hello Reader if you find any bug please consider raising issue I will address them asap.
