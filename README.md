@@ -2,7 +2,6 @@
 Thyroid disease is a very common problem in India, more than one crore people are suffering with the disease every year. Thyroid disorder can speed up or slow down the metabolism of the body.
 
 The main objective of this project is to predict if a person is having compensated hypothyroid, primary hypothyroid, secondary hypothyroid or negative (no thyroid) with the help of Machine Learning. Classification algorithms such as Random Forest, XGBoost and KNN Model have been trained on the thyroid dataset, UCI Machine Learning repository. After hyperparameter tuning XGBoost model has performed well with better accuracy, precision and recall. Application has deployed on Heroku with the help of flask framework.
-# Demo
 # Technical Aspects
 Python 3.7 and more
 Important Libraries: sklearn, pandas, numpy, matplotlib & seaborn
@@ -27,7 +26,7 @@ Hyper parameter tuning was performed using RandomizedSearchCV
 Model performance evaluated based on accuracy, confusion matrix, classification report.
 # Author
 Pavitra Mishra:https://www.linkedin.com/in/pavitra-mishra-483183251/
-
+# Demo
 https://github.com/pavitra147/Thyroid-Disease-Detection/assets/130755029/1d78ea71-96e3-4e11-a746-2a8606b23c90
 
 
